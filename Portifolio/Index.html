@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Aléxia Mendes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: #f0f0f0;
+            line-height: 1.6;
+            color: #95524a;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: #db9186;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: #95524a;
+        }
+
+        header {
+            background: #db9186;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 15px;
+            margin: 1rem auto;
+            border: 3px solid #ca8177;
+            object-fit: cover;
+        }
+
+        .skill-icon {
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+            object-fit: contain;
+            margin-right: 5px;
+        }
+
+        .lista-habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: #db9186;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #b87168;
+        }
+
+        .projetos {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ca8177;
+        }
+
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card-projeto {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 2px solid #b87168;
+        }
+
+        .card-projeto:hover {
+            transform: translateY(-5px);
+            background: #db9186;
+        }
+
+        .contato {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: #b87168;
+        }
+
+        .form-contato {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-contato label {
+            display: block;
+            margin: 15px 0;
+            color: white;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 2px solid #95524a;
+            border-radius: 8px;
+            background: #fff;
+        }
+
+        button[type="submit"], .links a {
+            background: #db9186;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        button[type="submit"]:hover, .links a:hover {
+            background: #95524a;
+        }
+
+        #backgroundMusic {
+            position: fixed;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .grid-projetos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop muted>
+        <source src="music/Disk Drive Insert and Spinning.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="language-switcher">
+        <button class="lang-btn" onclick="toggleLanguage()" data-translate="language">PT/EN</button>
+    </div>
+
+    <header>
+        <img src="1725635186385.jpeg" alt="Aléxia Mendes" class="avatar">
+        <h1 data-translate="name">Aléxia Mendes</h1>
+        <p data-translate="title">Desenvolvedor Full Stack</p>
+        <div class="links">
+            <a href="https://github.com/alexia-dev" target="_blank" data-translate="github">GitHub</a>
+            <a href="https://www.linkedin.com/in/alexiaamendes/" target="_blank" data-translate="linkedin">LinkedIn</a>
+        </div>
+    </header>
+
+    <section class="projetos">
+        <h2 data-translate="projects">Projetos Destacados</h2>
+        <div class="grid-projetos">
+            <div class="card-projeto">
+                <h3 data-translate="project1_title">Em desenvolvimento</h3>
+                <p data-translate="project1_desc">Novos projetos em breve</p>
+                <a href="#" data-translate="view_project">Ver projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="habilidades">
+        <h2 data-translate="skills">Habilidades Técnicas</h2>
+        <div class="lista-habilidades">
+            <span class="skill-tag">
+                <img src="javascript.png" alt="JavaScript" class="skill-icon">
+                <span data-translate="skill1">JavaScript</span>
+            </span>
+            <span class="skill-tag">
+                <img src="letra-c.png" alt="C#" class="skill-icon">
+                <span data-translate="skill2">C#</span>
+            </span>
+            <span class="skill-tag">
+                <img src="pitao.png" alt="Python" class="skill-icon">
+                <span data-translate="skill3">Python</span>
+            </span>
+        </div>
+    </section>
+
+    <section class="contato">
+        <h2 data-translate="contact">Entre em Contato</h2>
+        <!-- modify this form HTML and place wherever you want your form -->
+<form
+action="https://formspree.io/f/xwplnqrn"
+method="POST"
+>
+<label>
+  Your email:
+  <input type="email" name="email">
+</label>
+<label>
+  Your message:
+  <textarea name="message"></textarea>
+</label>
+<!-- your other form fields go here -->
+<button type="submit">Send</button>
+</form>
+        </form>
+    </section>
+
+    <script>
+        // Sistema de Tradução
+        const translations = {
+            'pt-BR': {
+                'language': 'PT/EN',
+                'name': 'Aléxia Mendes',
+                'title': 'Desenvolvedor Full Stack',
+                'github': 'GitHub',
+                'linkedin': 'LinkedIn',
+                'projects': 'Projetos Destacados',
+                'project1_title': 'Em desenvolvimento',
+                'project1_desc': 'Novos projetos em breve',
+                'view_project': 'Ver projeto',
+                'skills': 'Habilidades Técnicas',
+                'skill1': 'JavaScript',
+                'skill2': 'C#',
+                'skill3': 'Python',
+                'contact': 'Entre em Contato',
+                'name_label': 'Nome:',
+                'email_label': 'E-mail:',
+                'message_label': 'Mensagem:',
+                'send': 'Enviar'
+            },
+            'en-US': {
+                'language': 'EN/PT',
+                'name': 'Aléxia Mendes',
+                'title': 'Full Stack Developer',
+                'github': 'GitHub',
+                'linkedin': 'LinkedIn',
+                'projects': 'Featured Projects',
+                'project1_title': 'In Development',
+                'project1_desc': 'New projects coming soon',
+                'view_project': 'View Project',
+                'skills': 'Technical Skills',
+                'skill1': 'JavaScript',
+                'skill2': 'C#',
+                'skill3': 'Python',
+                'contact': 'Contact Me',
+                'name_label': 'Name:',
+                'email_label': 'Email:',
+                'message_label': 'Message:',
+                'send': 'Send'
+            }
+        };
+
+        let currentLang = localStorage.getItem('language') || 'pt-BR';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt-BR' ? 'en-US' : 'pt-BR';
+            localStorage.setItem('language', currentLang);
+            updateTexts();
+        }
+
+        function updateTexts() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translations[currentLang][key];
+                } else {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Inicialização
+        updateTexts();
+        document.documentElement.lang = currentLang;
+
+        // Controle de Áudio
+        const audio = document.getElementById('backgroundMusic');
+        audio.muted = false;
+        audio.volume = 0.3;
+        
+        try {
+            audio.play();
+        } catch (error) {
+            console.log('Autoplay não permitido: ', error);
+        }
+    </script>
+</body>
+</html>
